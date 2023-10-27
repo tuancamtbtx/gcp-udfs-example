@@ -1,0 +1,43 @@
+{
+  "name": "js_libs",
+  "version": "1.0.0",
+  "description": "Javascript UDFs",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "lint": "standard --fix --env jest",
+    "lintcode": "standard --reverse ",
+    "test": "jest test",
+    "test:dist": "jest test/system/dist.test.js",
+    "test:bigquery": "jest --testTimeout=10000 test/system/bigquery.test.js",
+    "build": "webpack",
+    "deploy": "node scripts/upload.js",
+    "ci": "npm run lint && npm test && npm run build && npm run test:dist && npm run deploy && npm run test:bigquery"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.23.0",
+    "@babel/core": "^7.23.2",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
+    "@babel/preset-env": "^7.23.2",
+    "@google-cloud/bigquery": "^5.12.0",
+    "@google-cloud/storage": "^5.8.2",
+    "eslint": "^7.18.0",
+    "jest": "^26.6.3",
+    "link-module-alias": "^1.2.0",
+    "standard": "^16.0.3",
+    "webpack": "^5.28.0",
+    "webpack-cli": "^4.6.0"
+  },
+  "paths": {
+    "@src/*": [
+      "src/*"
+    ]
+  }
+}

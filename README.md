@@ -1,6 +1,8 @@
 # Google BigQuery Javascript UDF Function Examples
+![Google Badge](https://img.shields.io/badge/GoogleCloud-4285F4?style=for-the-badge&labelColor=black&logo=Google%20Cloud&logoColor=white)
 
-
+## Progaming language
+![Nodejs Badge](https://img.shields.io/badge/-Nodejs-3C873A?style=for-the-badge&labelColor=black&logo=node.js&logoColor=3C873A)
 
 ## Install
 
@@ -42,16 +44,16 @@ npm run deploy
 
 *To Create UDF Function on A Dataset Bigquery*
 ```
-CREATE FUNCTION `${dataset_name}`.phoneNumberFormat(input STRING, code STRING, formatType STRING)
+CREATE FUNCTION `${dataset_name}`.stringFormatter(input STRING)
   RETURNS STRING
     LANGUAGE js
     OPTIONS (
       library=["gs://js-udfs/bigquery-js-udf-example/dist/dist.js"]
     )
     AS r"""
-      return PhoneNumberFormatter.format(input, code, formatType);
+      return stringFormatter.format(input);
     """
 ;
 
-SELECT `${dataset_name}`.phoneNumberFormat("0387902375", "VN", "E164") AS result;
+SELECT `${dataset_name}`.stringFormatter("I am Tuan Cam ") AS result;
 ```
